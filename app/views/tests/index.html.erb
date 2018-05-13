@@ -1,0 +1,42 @@
+
+<div class="container">
+<div class="d-flex bd-highlight"> 
+    <div class="p-2 flex-grow-1 bd-highlight">
+
+        <h1 class="mx-auto"> TestCases </h1> 
+    </div> 
+
+    <div class="p-2 bd-highlight"> 
+        <a href="#" class="btn btn-primary">Nuevo TestCase+</a>
+    </div> 
+</div> 
+
+
+        <% @tests.each do |issue| %>
+            <div class="d-flex bd-highlight shadow p-3 mb-5 bg-white rounded">                                
+            <div class="p-2 flex-grow-1 bd-highlight">
+                <h5 class="card-title"><%= issue.title %></h5>
+                <p class="card-text">Creado por <%= issue.user.email %> el <%=issue.created_at.strftime("%d de %b del %Y")%> </p>
+            </div>
+            <div class="p-2 flex-grow-1 bd-highlight">
+                <h6 class="card-title"><%= issue.priority %></h6>
+                <h6 class="card-title"><%= issue.type_test %></h6>
+                <h6 class="card-title"><%= issue.sprint %></h6>
+                <h6 class="card-title"><%= issue.preconditions %></h6>
+            </div>
+            <div class="p-2 bd-highlight">
+                <p class="card-text "><%= (issue.Status) %></p>
+            </div>   
+            <div class="p-2 bd-highlight"> 
+                <a href="/tests/<%= issue.id %>" class="btn btn-primary">Ver</a>
+            </div> 
+            </div> 
+                    
+        <% end %> 
+                
+            
+
+        </div>
+
+    </div>
+</div>

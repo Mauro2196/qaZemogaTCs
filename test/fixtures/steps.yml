@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  test: one
+  step: MyText
+  expected_step: MyText
+
+two:
+  user: two
+  test: two
+  step: MyText
+  expected_step: MyText

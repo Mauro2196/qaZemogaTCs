@@ -1,0 +1,56 @@
+<div class="container">
+<div class="d-inline-flex p-3">
+    <a href="/tests" class="btn btn-primary"> << Volver </a>
+</div>
+<div class="shadow p-3 mb-5 bg-white rounded">
+        <div class="d-flex bd-highlight shadow p-3 mb-5 bg-white rounded">                                
+        <div class="p-2 flex-grow-1 bd-highlight">
+            <h5 class="card-title"><%= @test.title %></h5>
+            <p class="card-text">Creado por <%= @test.user.email %> el <%=@test.created_at.strftime("%d de %b del %Y")%> </p>
+        </div>
+        <div class="p-2 flex-grow-1 bd-highlight">
+            <h6 class="card-title"><%= @test.priority %></h6>
+            <h6 class="card-title"><%= @test.type_test %></h6>
+            <h6 class="card-title"><%= @test.sprint %></h6>
+            <h6 class="card-title"><%= @test.preconditions %></h6>
+        </div>
+        <div class="p-2 bd-highlight">
+            <p class="card-text "><%= (@test.Status) %></p>
+        </div>   
+        <div class="p-2 bd-highlight"> 
+            <a href="/tests/<%= @test.id %>" class="btn btn-primary">Ver</a>
+        </div> 
+        </div> 
+    
+    <div class=" shadow p-3 bg-white rounded">
+    <h5 class="card-title"> Steps </h5>
+    <% @test.steps.each do |comment| %>
+        <div class="d-flex bd-highlight ">    
+        <div class="p-2 flex-grow-1 ">
+            <h5 class="card-title"><%= comment.step %></h5>
+            
+        </div>
+        
+        <div class="p-2 flex-grow-2">
+            <h5 class="card-title"><%= comment.expected_step %></h5>
+        
+        </div>
+        </div>
+               
+    <% end %> 
+    </div>
+        
+    <div class="new-step">
+        <%= form_for Step.new do |f| %>
+            <%= f.label :step, "Deja la descripcion: " %>
+            <%= f.text_field :step %>
+            <%= f.label :step, "Deja el expected result " %>
+            <%= f.text_field :expected_step %>
+
+        <div class="text-right">
+            <%= f.submit %>
+        </div>
+        <% end %>
+    </div>
+</div> 
+</div> 

@@ -10,7 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180513180223) do
+ActiveRecord::Schema.define(version: 20180513181921) do
+
+  create_table "steps", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "test_id"
+    t.text "step"
+    t.text "expected_step"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["test_id"], name: "index_steps_on_test_id"
+    t.index ["user_id"], name: "index_steps_on_user_id"
+  end
+
+  create_table "tests", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "title"
+    t.string "type_test"
+    t.string "priority"
+    t.string "sprint"
+    t.string "Status"
+    t.text "preconditions"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_tests_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
