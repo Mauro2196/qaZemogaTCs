@@ -32,6 +32,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'bootstrap', '~> 4.1.0'
 gem 'jquery-rails'
+gem 'seed_dump'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 group :production do
