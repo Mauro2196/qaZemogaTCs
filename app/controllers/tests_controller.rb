@@ -12,9 +12,9 @@ class TestsController < ApplicationController
     def create
         @test = Test.new(test_params)
         @test.user = current_user
-        @test.open = true
+        
         if @test.save
-          redirect_to test_path, notice: "El Test fue creado correctamente"
+          redirect_to tests_path, notice: "El Test fue creado correctamente"
         else
           render :new
         end  
@@ -27,7 +27,7 @@ class TestsController < ApplicationController
       
     private
     def test_params
-          params.require(:test).permit(:title, :type, :priority, :sprint, :status, :preconditions )
+          params.require(:test).permit(:title, :type, :priority, :sprint, :Status, :preconditions )
     end
 end
 
